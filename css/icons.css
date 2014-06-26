@@ -1,0 +1,21 @@
+.background-test {
+  background-color: #cccccc;
+  background-color: initial;
+  background-color: transparent;
+  background-color: inherit;
+  background-image: url(/data/www/global/icons/fugue-icons/icons/document-mobi.png);
+  background-image: url(/data/www/global/icons/fugue-icons/icons/document.png);
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAYdJREFUeNqMksFqwkAQhmc3W4q0OSq09170LdJzb32IvkQVpIeeS6Gehdz6AkUoePOYe71VEBGiVkUxyaYzY9bENIYuTDbZ3f/b+Wci7ptNoCGEuMPpCsrHp9Z6qKMI4jjmBWVecL7utlqdHW4GFFpDhHtm3/M86PZ6D3QXxpchSqIlITSJgoBjt93CZr2G1WoFy+WS5/d2u4PnblF3YwAqQnEyBKElPs8sK006DCFEsO/78Oq64NTrby+u+4g7TwzQKUCSWDIG/kAcx2E7tm3Dh+fNDhmE2QwygCIIZcKvaDe1gBt5C9mRh9AlqCkE7C1ICZDcVASx9gCZWsgADhmUQCycwxMArgHXYZ9PIcTC9fDIAvY8nwHJTkHYQhCcsEAZYKvKIIJrmbGwGI/holo96oIugdC6sbCeTkEO+33wRyP6bVVSCD5kYOabumPW6SxpSEsXVL4Hg9piNjvPVPMgoKJRKCygUoq7QGdJQ1q6tYJR+5lM5peNxjP8Y+jNZk4aKsevAAMAmFzedjV8x2YAAAAASUVORK5CYII=");
+  background-position: 2px -7px;
+  background: url(/data/www/global/icons/fugue-icons/icons/document-mobi.png);
+}
+.background-test2 {
+  display: inline-block;
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border: 1px solid black;
+  background: #cccccc -1px -7px;
+  background-image: url(/global/icons/fugue-icons/icons/document-mobi.png);
+  background-repeat: no-repeat;
+}

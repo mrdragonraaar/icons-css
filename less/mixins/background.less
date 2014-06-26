@@ -1,0 +1,215 @@
+// Background
+
+#background {
+	// background-attachment: scroll|fixed|local|initial|inherit;
+	.attachment(@attachment) { 
+		.set-attachment(@attachment);
+		background-attachment: @background-attachment;
+	}
+
+	.set-attachment(@attachment) { 
+		.set-attachment(@attachment) { @background-attachment: scroll; }
+		.set-attachment(fixed) { @background-attachment: fixed; }
+		.set-attachment(local) { @background-attachment: local; }
+		.set-attachment(initial) { @background-attachment: inherit; }
+		.set-attachment(@attachment);
+	}
+
+
+	// background-clip: border-box|padding-box|content-box|initial|inherit;
+	.clip(@clip) {
+		.set-clip(@clip);
+		background-clip: @background-clip;
+	}
+
+	.set-clip(@clip) {
+		.set-clip(@clip) { @background-clip: border-box; }
+		.set-clip(padding-box) { @background-clip: padding-box; }
+		.set-clip(content-box) { @background-clip: content-box; }
+		.set-clip(initial) { @background-clip: initial; }
+		.set-clip(inherit) { @background-clip: inherit; }
+		.set-clip(@clip);
+	}
+
+
+	// background-color: color|transparent|initial|inherit;
+	.color(@color) { 
+		.set-color(@color);
+		background-color: @background-color;
+	}
+
+	.set-color(@color) {
+		.set-color(@color) { @background-color: transparent; }
+		.set-color(@color) when (iscolor(@color)) { @background-color: @color; }
+		.set-color(initial) { @background-color: initial; }
+		.set-color(inherit) { @background-color: inherit; }
+
+		.set-color(@color);
+	}
+
+
+	// background-image: url|none|initial|inherit;
+	.image(@url) {
+		.set-image(@url);
+		background-image: @background-image;
+	}
+
+	.image-data(@url) when (isstring(@url)) {
+		.set-image-data(@url);
+		background-image: @background-image;
+	}
+
+	.set-image(@url) {
+		.set-image(@url) { @background-image: none; }
+		.set-image(@url) when (isurl(@url)) { @background-image: @url; }
+		.set-image(@url) when (isstring(@url)) { @background-image: url(@url); }
+		.set-image(initial) { @background-image: initial; }
+		.set-image(inherit) { @background-image: inherit; }
+		.set-image(@url);
+	}
+
+	.set-image-data(@path) when (isstring(@path)) {
+		.set-image(data-uri(@path));
+	}
+
+
+	// background-origin: padding-box|border-box|content-box|initial|inherit;
+	.origin(@origin) {
+		.set-origin(@origin);
+		background-origin: @background-origin;
+	}
+
+	.set-origin(@origin) {
+		.set-origin(@origin) { @background-origin: padding-box; }
+		.set-origin(border-box) { @background-origin: border-box; }
+		.set-origin(content-box) { @background-origin: content-box; }
+		.set-origin(initial) { @background-origin: initial; }
+		.set-origin(inherit) { @background-origin: inherit; }
+		.set-origin(@origin);
+	}
+
+	
+	// background-position: value;
+	.position(@x) {
+		.set-position-x(@x);
+		background-position: @background-position-x;
+	}
+
+	.position(@x, @y) {
+		.set-position(@x, @y);
+		background-position: @background-position;
+	}
+
+	.set-position-x(@x) {
+		.set-position-x(@x) { @background-position-x: 0; }
+		.set-position-x(@x) when (isnumber(@x)) { @background-position-x: @x; }
+		.set-position-x(initial) { @background-position-x: initial; }
+		.set-position-x(inherit) { @background-position-x: inherit; }
+		.set-position-x(left) { @background-position-x: left; }
+		.set-position-x(right) { @background-position-x: right; }
+		.set-position-x(center) { @background-position-x: center; }
+		.set-position-x(@x);
+	}
+
+	.set-position-y(@y) {
+		.set-position-y(@y) { @background-position-y: 0; }
+		.set-position-y(@y) when (isnumber(@y)) { @background-position-y: @y; }
+		.set-position-y(top) { @background-position-y: top; }
+		.set-position-y(center) { @background-position-y: center; }
+		.set-position-y(bottom) { @background-position-y: bottom; }
+		.set-position-y(@y);
+	}
+
+	.set-position(@x, @y) {
+		.set-position-x(@x);
+		.set-position-y(@y);
+		@background-position: @background-position-x @background-position-y;
+	}
+
+
+	// background-repeat: repeat|repeat-x|repeat-y|no-repeat|initial|inherit;
+	.repeat(@repeat) {
+		.set-repeat(@repeat);
+		background-repeat: @background-repeat;
+	}
+
+	.set-repeat(@repeat) {
+		.set-repeat(@repeat) { @background-repeat: repeat; }
+		.set-repeat(repeat-x) { @background-repeat: repeat-x; }
+		.set-repeat(repeat-y) { @background-repeat: repeat-y; }
+		.set-repeat(no-repeat) { @background-repeat: no-repeat; }
+		.set-repeat(initial) { @background-repeat: initial; }
+		.set-repeat(inherit) { @background-repeat: inherit; }
+		.set-repeat(@repeat);
+	}
+
+
+	// background-size: auto|length|cover|contain|initial|inherit;
+	.size(@width) {
+		.set-size-width(@width);
+		background-size: @background-size-width;
+	}
+
+	.size(@width, @height) {
+		.set-size-width(@width);
+		.set-size-height(@height);
+		background-size: @background-size-width @background-size-height;
+	}
+
+	.set-size-width(@width) {
+		.set-size-width(@width) { @background-size-width: auto; }
+		.set-size-width(@width) when (isnumber(@width)) { @background-size-width: @width; }
+		.set-size-width(cover) { @background-size-width: cover; }
+		.set-size-width(contain) { @background-size-width: contain; }
+		.set-size-width(initial) { @background-size-width: initial; }
+		.set-size-width(inherit) { @background-size-width: inherit; }
+		.set-size-width(@width);
+	}
+
+	.set-size-height(@height) {
+		.set-size-height(@height) { @background-size-height: auto; }
+		.set-size-height(@height) when (isnumber(@height)) { @background-size-height: @height; }
+		.set-size-height(@height);
+	}
+
+	.set-size(@width, @height) {
+		.set-size-width(@width);
+		.set-size-height(@height);
+		@background-size: @background-size-width @background-size-height;
+	}
+}
+
+
+// background: color position size repeat origin clip attachment image|initial|inherit;
+
+.background(@color) when (iscolor(@color)) {
+	#background.set-color(@color);
+	background: @background-color;
+}
+
+.background(@x, @y) when (isnumber(@x)) {
+	& when (isnumber(@y)) { #background.set-position(@x, @y); }
+	background: @background-position;
+}
+
+.background(@image) when (isurl(@image)) {
+	background: @image;
+}
+.background(@image) when (isstring(@image)) {
+	background: url(@image);
+}
+
+.background(@color, @x, @y) when (iscolor(@color)) {
+	& when (isnumber(@x)) { 
+		& when (isnumber(@x)) { background: @color @x @y; }
+	}
+}
+
+.fishrabbit(@asdf) {
+	//#background.repeat(@asdf).set-repeat(@asdf);
+	//#background.repeat.set-repeat(@asdf);
+
+	#background.set-color(@asdf);
+	fishrabbit: @background-color;
+}
+

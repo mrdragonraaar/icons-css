@@ -1,0 +1,63 @@
+
+//
+// Load core variables and mixins
+// --------------------------------------------------
+
+@import "variables.less";
+@import "mixins.less";
+
+.background-test {
+	//#background.color(#ccc);
+	#background.color('fish');
+	#background.color(initial);
+	//#background.color(transparent);
+	#background.color(inherit);
+	#background.color(#ddd);
+	#background.color(colin);
+	#background.image(url(/data/www/global/icons/fugue-icons/icons/document-mobi.png));
+	#background.image(~"/data/www/global/icons/fugue-icons/icons/document.png");
+	#background.image-data(~"/data/www/global/icons/fugue-icons/icons/document.png");
+	//#background.image(transparent);
+	//#background.position(right, fish);
+	#background.position(2px, -7px);
+	#background.position(left, -7px);
+	#background.position(left, top);
+
+	#background.position(7px);
+	#background.size(cover, fish);
+	#background.attachment('hghgjg');
+	#background.clip('hghgjg');
+	#background.origin('hghgjg');
+
+	//.background(url(/data/www/global/icons/fugue-icons/icons/document-mobi.png));
+	//.fishrabbit(#ccc);
+}
+
+.background-test2 {
+	//display: inline-block;
+	//position: relative;
+	width: 200px;
+	height: 200px;
+	border: 1px solid black;
+	//.background(url(/global/icons/fugue-icons/icons/document-mobi.png));
+	//background: #ccc;
+	//.background(-1px, -7px);
+	//.background(#ccc, -1px, -7px);
+
+	//#background.image(url(/global/icons/fugue-icons/icons/document-mobi.png));
+	//#background.repeat('no-repeat');
+
+	//.background(#ccc);
+	//.background(5, 6);
+
+	//.icon(4px, 5px);
+	//.icon(url(/global/icons/fugue-icons/icons/document-mobi.png));
+	//.icon('/global/icons/fugue-icons/icons/document-mobi.png');
+	//.icon-data(4px, -7px, '/data/www/global/icons/fugue-icons/icons/document-mobi.png');
+
+	#icon.base();
+	#icon.image-data('/data/www/global/icons/fugue-icons/icons/document-mobi.png');
+	#icon.image-data-disabled('/data/www/global/icons/fugue-icons/icons/document.png');
+	#icon.position-disabled(7px, 3px);
+}
+

@@ -1,0 +1,160 @@
+// Icons
+
+#icon {
+	// Base style
+	.base() {
+		position: relative;
+		display: inline-block;
+		padding: 0px;
+		margin: 0px;
+		vertical-align: middle;
+		#background.repeat(no-repeat);
+	}
+
+	// Size
+	.size(@width; @height) when (isnumber(@width)) {
+		& when (isnumber(@height)) {
+			width: unit(@width, px);
+			height: unit(@height, px);
+		}
+	}
+
+	// Image
+	.image(@url) {
+		#background.image(@url);
+	}
+	.image-disabled(@url) {
+		[disabled] > a > &,
+		.disabled > a > &,
+		[disabled] > &,
+		.disabled > &,
+		&.disabled {
+			#background.image(@url);
+		}
+	}
+	.image-active(@url) {
+		.active > a > &,
+		a:focus > &,
+		.active > &,
+		&.active {
+			#background.image(@url);
+		}
+	}
+	.image-hover(@url) {
+		a:hover > & {
+			#background.image(@url);
+		}
+	}
+
+	.image-data(@path) {
+		#background.image-data(@path);
+	}
+	.image-data-disabled(@path) {
+		[disabled] > a > &,
+		.disabled > a > &,
+		[disabled] > &,
+		.disabled > &,
+		&.disabled {
+			#background.image(@path);
+		}
+	}
+	.image-data-active(@path) {
+		.active > a > &,
+		a:focus > &,
+		.active > &,
+		&.active {
+			#background.image(@path);
+		}
+	}
+	.image-data-hover(@path) {
+		a:hover > & {
+			#background.image(@path);
+		}
+	}
+
+	// Position
+	.position(@x; @y) {
+		#background.position(@x, @y);
+	}
+	.position-disabled(@x, @y) {
+		[disabled] > a > &,
+		.disabled > a > &,
+		[disabled] > &,
+		.disabled > &,
+		&.disabled {
+			#background.position(@x, @y);
+		}
+	}
+	.position-active(@x, @y) {
+		.active > a > &,
+		a:focus > &,
+		.active > &,
+		&.active {
+			#background.position(@x, @y);
+		}
+	}
+	.position-hover(@x, @y) {
+		a:hover > & {
+			#background.position(@x, @y);
+		}
+	}
+}
+
+.icon() {
+	position: relative;
+	display: inline-block;
+	padding: 0px;
+	margin: 0px;
+	vertical-align: middle;
+	#background.repeat(no-repeat);
+}
+
+.icon(@url) when (isurl(@url)) {
+	.icon();
+	#background.image(@url);
+}
+
+.icon(@url) when (isstring(@url)) {
+	.icon();
+	#background.image(@url);
+}
+
+.icon-data(@path) when (isstring(@path)) {
+	.icon();
+	#background.image-data(@path);
+}
+
+.icon(@width; @height) when (isnumber(@width)) {
+	& when (isnumber(@height)) {
+		.icon();
+		width: @width;
+		height: @height;
+	}
+}
+
+.icon(@width; @height; @url) when (isnumber(@width)) {
+	& when (isnumber(@height)) {
+		& when (isurl(@url)) {
+			.icon(@width, @height);
+			.icon(@url);
+		}
+		& when (isstring(@url)) {
+			.icon(@width, @height);
+			.icon(@url);
+		}
+	}
+}
+
+.icon-data(@width; @height; @url) when (isnumber(@width)) {
+	& when (isnumber(@height)) {
+		& when (isurl(@url)) {
+			.icon(@width, @height);
+			.icon-data(@url);
+		}
+		& when (isstring(@url)) {
+			.icon(@width, @height);
+			.icon-data(@url);
+		}
+	}
+}
+
